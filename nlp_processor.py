@@ -48,7 +48,7 @@ def process_query(user_query, structured_data):
     # Pre-calculate the beta description to avoid complexity within the f-string
     beta_description = "a relatively stable" if float(beta) < 1 else "a potentially more volatile"
     detailed_description = (
-        f"Let's talk about {company_name}, a company I've been looking into based on data from Alpha Vantage (https://www.alphavantage.co/). They have a Price-to-Earnings ratio of {pe_ratio}, which caught my eye. Their Profit Margin stands at {profit_margin}, and the Market Capitalization is currently {market_cap}. Interestingly, analysts have set a target price of {target_price}, while the Earnings per Share is {earnings_per_share} and EBITDA is {ebitda}. "
+        f"Let's talk about {company_name}, a company I've been looking into using data from Alpha Vantage (https://www.alphavantage.co/). They have a Price-to-Earnings ratio of {pe_ratio}, which caught my eye. Their Profit Margin stands at {profit_margin}, and the Market Capitalization is currently {market_cap}. Interestingly, analysts have set a target price of {target_price}, while the Earnings per Share is {earnings_per_share} and EBITDA is {ebitda}. "
         + f"Digging deeper, I found that {company_name}'s Operating Margin TTM is {operating_margin_ttm}, with a Return on Equity TTM of {return_on_equity_ttm}. Their Beta value is {beta}, suggesting {beta_description} investment. The Book Value is noted as {book_value}, and their EV to EBITDA ratio is {ev_to_ebitda}, alongside a Gross Profit TTM of {gross_profit_ttm}. "
         + "Given these insights, I'm curious about your take on their financial health. Are there particular areas where you think the company could improve or aspects that signal strength?"
     )
