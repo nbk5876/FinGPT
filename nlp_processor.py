@@ -8,7 +8,7 @@
 from openai import OpenAI
 
 #------------------------------------------------------------
-#
+# process_query(user_query, structured_data)
 #
 #------------------------------------------------------------
 def process_query(user_query, structured_data):
@@ -78,7 +78,7 @@ def process_query(user_query, structured_data):
     return response
 
 #------------------------------------------------------------
-#
+# webfile_write(filename, question, answer)
 #
 #------------------------------------------------------------
 def webfile_write(filename, question, answer):
