@@ -16,9 +16,9 @@ Before installation, ensure you have Python (version 3.8 or newer) installed on 
 
 **Clone the Repository**
 
-git clone https://github.com/nbk5876/nbk5876.github.io/tree/main/GPT_Fin
+git clone https://github.com/nbk5876/FinGPT
 
-cd nbk5876.github.io/GPT_Fin
+cd FinFin
 
 **Setup a Virtual Environment**
 
