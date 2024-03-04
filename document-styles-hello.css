@@ -1,0 +1,28 @@
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 24px; /* Default font size for mobile */
+    line-height: 1.5; /* Good for readability */
+    padding: 20px; /* Adds some space around the content */
+}
+
+h1 {
+    font-size: 24px; /* Larger size for headings on mobile */
+    color: #333; /* Dark grey color for the text */
+}
+
+img {
+    display: block; /* Ensures the image does not inline with text */
+    max-width: 100%; /* Makes the image responsive */
+    height: auto; /* Maintains aspect ratio */
+    margin: 20px 0; /* Adds some space above and below the image */
+}
+
+/* Adjustments for larger screens */
+@media (min-width: 768px) {
+    body {
+        font-size: 18px; /* Slightly larger font size for desktop */
+    }
+    h1 {
+        font-size: 32px; /* Larger heading size for desktop */
+    }
+}

@@ -1,0 +1,29 @@
+﻿/* Base styles that are mobile-first. These apply to mobile devices and up */
+body {
+    font-family: 'Calibri', sans-serif;
+    font-size: 36px; /* Larger base font size for better readability on mobile */
+}
+
+img {
+    width: 100%; /* Make the image take the full width of its parent container */
+    height: auto; /* Adjust height automatically to maintain the aspect ratio */
+}
+
+
+/* Adjustments for larger screens */
+@media (min-width: 768px) { /* This targets screens wider than 768 pixels */
+    body {
+        font-size: 16px; /* Adjust font size for PCs and larger devices */
+    }
+}
+
+/* You might want to adjust headings, paragraphs, and other elements specifically */
+h1 {
+    font-size: 24px; /* Larger size for headings on mobile */
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 32px; /* Adjust heading size for larger screens */
+    }
+}
