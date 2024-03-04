@@ -73,7 +73,7 @@ def process_query(user_query, structured_data):
     except IndexError:
         response = "An error occurred processing the query."
 
-    webfile_write("archive.html", detailed_description, response)
+    webfile_write('../archive.html', detailed_description, response)
 
     return response
 
@@ -99,7 +99,7 @@ def webfile_write(filename, question, answer):
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Q&A Archive</title>
     <style>
-        body {{ font-family: Arial, sans-serif; padding: 20px; }}
+        body {{ font-family: Calibri, sans-serif; padding: 20px; }}
         .question, .answer {{ margin-bottom: 20px; }}
         .question h2, .answer h2 {{ margin-bottom: 10px; }}
     </style>
