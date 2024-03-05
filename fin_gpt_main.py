@@ -20,6 +20,8 @@ import utils
 def main():
     #user_query = input("Enter your financial query: ")
     #user_query = "What is the Price-to-Earnings ratio for Microsoft?"
+    #user_query = "What is your analysis of Microsoft, Apple, and Bank of America?"
+
     user_query = "MSFT"
 
     print(user_query)
@@ -33,7 +35,6 @@ def main():
     symbol = 'BA'
     symbol = 'MSFT'
     symbol = 'F'
-    symbol = 'LMT'
     
     company_overview_data = fetch_financial_data(symbol)  # Contains P/E ratio, Market Cap, etc.
     current_stock_price = fetch_current_stock_price(symbol)  # Contains the current stock price
