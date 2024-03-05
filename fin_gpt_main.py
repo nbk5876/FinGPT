@@ -6,6 +6,7 @@
 # Author: T Byorick 2024
 # Github link: https://github.com/nbk5876/nbk5876.github.io/tree/5a834f96a425480fac90fa20f881f9dfdc9199cf/GPT_Fin
 # Overview: https://aiseattle.chat/FinGPT
+# Z517
 #------------------------------------------------------------
 import os
 os.system('cls' if os.name == 'nt' else 'clear')
