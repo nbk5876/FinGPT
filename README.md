@@ -1,6 +1,6 @@
 # README.md for FinGPT GitHub Repository
 
-## Project Title
+## FinGPT Prototype
 FinGPT is a small Python application that provides financial analysis of stock market information by working together with   ChatGPT. Users enter the symbol for an equity, e.g. MSFT, AAPL etc, and receives detailed insights, market analysis, historical performance, and predictive trends. The application is intended as a prototype to show how ChatGPT can be integrated with stock market data using application programing interfaces (APIs). 
 
 ![Example Image](https://nbk5876.github.io/FinGPT/image/FinGpt-Prototype-Concept-Diagram.png "FinGPT Overview Flow")
