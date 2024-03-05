@@ -43,18 +43,9 @@ Latest news and analyst recommendations
 Predictive trends and investment advice
 
 ## Contributing
-Guidelines for contributing to the project. This could include information on how to report issues or submit pull requests.
-
-Contributions to the FinGPT project are welcome! If you're looking to contribute, please follow these steps:
-
-Fork the Repository - Start by forking the repository to your GitHub account.
-Create a Branch - Create a new branch for your feature or fix.
-Submit a Pull Request - Once your changes are ready, submit a pull request for review.
-
-Please ensure your code adheres to the project's coding standards and includes appropriate tests. For more information, see the CONTRIBUTING.md file in the repository.
+Guidelines for contributing have not been set but are welcome.
 
 ## License
-
-FinGPT is released under the MIT License. See the LICENSE file in the repository for full license text. This license allows for free use, modification, and distribution of the software, making it an excellent choice for open-source projects.
+The license has not been set.
 
 
