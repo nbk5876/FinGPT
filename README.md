@@ -29,7 +29,7 @@ source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 
 pip install -r requirements.txt
 
-This will install all necessary Python packages, including openai, which is required for interfacing with GPT-4.
+This will install all necessary Python packages, including openai, which is required for interfacing with GPT-4. 
 
 ## Usage
 To use FinGPT, run the main script from a command line prompt:
