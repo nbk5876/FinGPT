@@ -10,3 +10,6 @@ __pycache__/
 # Ignore other system files that are not related to the code
 .DS_Store
 Thumbs.db
+
+# Ignore Word docs
+*.docx
