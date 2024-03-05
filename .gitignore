@@ -11,5 +11,5 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Ignore Word docs
+# Ignore Word docs 
 *.docx
