@@ -37,6 +37,7 @@ def main():
     symbol = 'MSFT'
     symbol = 'F'
     
+    # Get company overview and current stock price
     company_overview_data = fetch_financial_data(symbol)  # Contains P/E ratio, Market Cap, etc.
     current_stock_price = fetch_current_stock_price(symbol)  # Contains the current stock price
 
@@ -50,6 +51,9 @@ def main():
     #cached_data = cache_manager.get_cached_data(structured_data)
     
     #if not cached_data:
+    #--------------------------------------------------
+    # Send query to GPT4
+    #--------------------------------------------------
     response = process_query(user_query, structured_data)
     #   cache_manager.cache_data(structured_data)
     #else:
