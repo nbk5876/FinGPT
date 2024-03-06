@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FinGPT Dev Plan</title>
+<link rel="stylesheetZ" href="document-stylesZZZZZ.css">
+</head>
+
+<body>
+
+<h1>FinGPT Prototype</h1>
+
+<p>The prototype accepts queries about an equity and returns stock market information 
+and analysis. </p>
+<img src="image/FinGpt-Prototype-Concept-Diagram.png" alt="FinGPT High Level Flow">
+
+<h2><a href="https://github.com/nbk5876/FinGPT">
+Github Project Folder</a></h2>
+
+
+
+<h2>Processing Steps</h2>
+<ul>
+	<li>Step 1 - Get natural language query from the user. For example, "What is the 
+	Price-to-Earnings ratio for Microsoft?" 	</li>
+	<li>Step 2- Fetch current financial data from the Web: The system retrieves the latest data from the internet using APIs or scraping techniques. (<a href="alphavantage-returned-data-sample.html">Example API Return Value</a>)
+	</li>
+
+	<li>Step 3- Data structuring and, optional, lightweight local data caching: 
+	This is an optional step where the system may cache the retrieved data locally to improve performance and reduce the need for repeated data fetching. 
+	Maybe implement this in a later phase.
+	</li>
+
+	<li>Step 4 - Resolve NLP (natural language processing) query using OpenAI API's:&nbsp; The system sends the user's query 
+	together with retrieved financial data to the OpenAI API, which processes the query using the GPT LLM model.
+	</li>
+
+	<li>Step 5 - Send results back to the user: Finally, the system presents the OpenAI API's response 
+	back to the user.
+	</li>
+</ul>
+
+<img src="image/FinGpt-Prototype-Flow-Diagram.png" alt="FinGPT High Level Flow">
+
+<h1>FinGPT Dev Plan</h1>
+<ol>
+	<li><strong>Technical Environment Setup: </strong>Configure local PC desktop 
+	to commincate with OpenAI APIs.</li>
+	<li><strong>Feature Development:</strong> Identify the key features that would be most valuable for stock market analysis. This could include trend prediction, sentiment analysis of market news, generating summaries of financial reports, etc.
+
+	</li>
+	<ol type="a">
+	<li>Feature 1: Natural language input will be used to direct the 
+	application. Utilizing natural language input allows users to interact with the application in a conversational manner, making it more accessible and user-friendly.</li>
+	<li>Feature 2: The application will use GPT-3 or GPT-4 LLM. The decision to use GPT-3 or GPT-4 underscores a commitment to leveraging state-of-the-art language models for generating insights, which should enhance the quality and relevance of the analyses provided</li>
+		<li>Feature 3: The application will query the internet and world wide 
+		web when needed to read stock anaysis stored in public databases and in 
+		corporate web sites. Enabling the application to query the internet and access public databases and corporate websites for stock analysis ensures that FinGPT can provide up-to-date information and comprehensive market insights.</li>
+	</ol>
+	<li><strong>Requirements:</strong> </li>
+
+<ol type="a">
+  <li>Req 1: <strong>Parse the Input Query</strong>: Given the following NLP input, query the internet for an answer:&nbsp; 
+  For example, "What is the price to earning ration for Microsoft?"</li>
+  <li>Req 2: <strong>Intent Recognition</strong>: Recognize the intent behind the query, which is to find financial ratios for a specific company.</li>
+  <li>Req 3</li>
+</ol>
+
+	<li><strong>Dataset Preparation:</strong> Collect and curate datasets relevant to your features. For equity analysis, this could include historical price data, financial statements, analyst ratings, and more.
+
+	</li>
+	<li><strong>Model Training and Fine-Tuning:</strong> Use the datasets to train or fine-tune GPT models to understand and generate insights specific to financial contexts.
+
+	</li>
+	<li><strong>Interface Design:</strong> Design an intuitive interface for users to interact with FinGPT. Whether it's a command-line tool, a web application, or an API, the ease of use will be critical for adoption.
+
+	</li>
+	<li><strong>Testing and Validation:</strong> Rigorously test FinGPT to ensure its analyses are accurate and reliable. Consider the ethical implications of providing financial advice and ensure you comply with relevant regulations.
+
+	</li>
+	<li><strong>Documentation:</strong> Create comprehensive documentation on how to use FinGPT, including examples and use cases.
+
+	</li>
+	<li><strong>Feedback Loop:</strong> Establish a process for users to provide feedback on FinGPT's analysis to continuously improve its accuracy and usefulness.</li>
+	<li><strong>Security and Privacy:</strong> Ensure that your tool handles user data securely, especially if you'll be dealing with sensitive financial information.
+
+	</li>
+	<li><strong>Compliance and Ethics:</strong> Stay informed about financial regulations and ethical guidelines to ensure that FinGPT complies with all legal requirements, especially if it provides or could be interpreted as providing investment advice.
+	</li>
+</ol>
+
+
+<h1>Input and Output Message Examples</h1>
+
+<p><strong>Enriched User Query - Ford</strong></p>
+
+<p>According to Alpha Vantage, the current Price-to-Earnings ratio for Ford Motor Company is 11.52. Profit Margin is 0.0247. Market Capitalization is 49431953000. The current stock price is 12.4450 and the target price is 13.07. Can you provide a financial analysis based on these data points? Are there areas where the company is struggling?</p>
+
+<p><strong>Chat Completion Message (content=</strong></p>
+
+<p>Based on the data provided, Ford Motor Company appears to possibly be undervalued given a Price-to-Earnings ratio of 11.52. The P/E ratio is a valuation ratio, calculated by dividing a company's market value per share by earnings per share (EPS). In the broad market context, a P/E ratio of around 11.52 is relatively low. The average P/E ratio tends to hover around 20-25 for the companies in the S&P 500, so in comparison Ford's P/E ratio might suggest it is undervalued, assuming all other factors being equal.</p>
+
+<p>With regard to profit margin, Ford's profit margin of 2.47% is thin. This suggests that Ford isn't retaining much profit from its revenues. For auto manufacturers, the average net profit margin is usually around 5-10%. In comparison, Ford's current profit margin indicates it is struggling to convert its top-line revenue into bottom-line profit which might be due to high costs, inefficiencies, or a sign of intense competition. </p>
+
+<p>The market capitalization of USD 49.43 billion suggests that Ford is a large-cap stock. Given that such companies are usually less volatile than smaller ones, the investment in Ford might be considered comparatively stable, but this needs further comprehensive evaluation beyond market cap.</p>
+
+<p>The current stock price at $12.4450 being lower than the target price of $13.07 also suggests a potential upside for investors. That could mean that financial analysts expect Ford's stock price to increase in the future.</p>
+
+<p>However, for a complete assessment, it would be important to take into account other fundamental and technical factors such as revenue growth, debt levels, upcoming company-specific news/events and overall market conditions. This analysis is also conducted at a single point in time and values may change rapidly with new data or market conditions. Therefore, it is advisable to constantly monitor the financial state of the company and consider engaging a professional financial advisor for in-depth analysis and advice. 
+
+<p>&nbsp;role='assistant', function_call=None, tool_calls=None)</p>
+
+
+
+<p><strong>Enriched User Query - Boeing</strong></p>
+<p>According to Alpha Vantage, the current Price-to-Earnings ratio for The Boeing Company is None. Profit Margin is -0.0286. Market Capitalization is 126297940000. The current stock price is 207.0000 and the target price is 258.72. Can you provide a financial analysis based on these data points? Are there areas where the company is struggling?
+</p>
+
+<p><strong>Chat Completion Message (content=</strong></p>
+
+<p>Based on the available data, we have several pointers to consider:
+</p>
+
+<p>1. The Price-to-Earnings (P/E) ratio is not available. This could mean the company has not been profitable over the past 12 months, which perfectly aligns with the negative profit margin of -0.0286, implying the company is currently facing financial difficulties.
+</p>
+
+<p>2. Boeing incurs a loss of approximately 2.86% on every dollar of sales, as indicated by the Negative Profit Margin. The company is spending more on costs (operating, financial, etc.) than it is receiving in revenue. This reflects an inefficiency in cost management and is a potential area of struggle for Boeing.
+</p>
+
+<p>3. The stock's current price is lower than the target price, which signals that market analysts anticipate an increase in its value. However, the condition of Boeing's profitability might make this growth target challenging to achieve in the short term given the negative profit margin.
+</p>
+
+<p>4. A substantial Market Capitalization of $126,297,940,000 suggests that Boeing is a large-cap stock. The company obviously remains a significant player in its sector, possibly benefitting from economies of scale and a strong market presence.
+</p>
+
+<p>In summary, while Boeing has a sizeable market capitalization and its stock is projected to grow in the future, it is currently struggling with profitability. To address the negative profit margin, it may need to identify and implement cost reduction measures, improve operational efficiency, or increase revenue, all while navigating an ever-competitive aerospace market. Additionally, the lack of a P/E ratio due to a lack of profitability places investors in a position where they can't evaluate Boeing's earnings relative to its share price, which could influence future investment decisions.</p>
+
+<p>&nbsp;role='assistant', function_call=None, tool_calls=None)</p>
+
+<h1>Links</h1>
+<p>
+<a href="response_archive/fin_analysis_boeing.html">Financial Analysis of The Boeing Company</a>
+</p>
+
+<p>&nbsp;</p>
+</body>
+
+</html>
