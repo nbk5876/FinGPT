@@ -9,7 +9,7 @@ from openai import OpenAI
 
 #------------------------------------------------------------
 # process_query(user_query, structured_data)
-#
+# Version 1
 #------------------------------------------------------------
 def process_query(user_query, structured_data):
     """
@@ -40,7 +40,6 @@ def process_query(user_query, structured_data):
     ev_to_ebitda = structured_data["overview"].get("EVToEBITDA")
     gross_profit_ttm = structured_data["overview"].get("GrossProfitTTM")
     earnings_per_share = structured_data["overview"].get("EPS")
-
     current_price = structured_data["currentPrice"]
 
     print(f"Price to Earnings ratio is {pe_ratio} for {structured_data.get('Name')}")

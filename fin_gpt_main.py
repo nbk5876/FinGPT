@@ -36,6 +36,7 @@ def main():
     symbol = 'BA'
     symbol = 'MSFT'
     symbol = 'F'
+    symbol = 'KIND'
     
     # Get company overview and current stock price
     company_overview_data = fetch_financial_data(symbol)  # Contains P/E ratio, Market Cap, etc.

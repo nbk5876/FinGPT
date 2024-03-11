@@ -103,4 +103,17 @@ ARM Holdings: ARMH (Note: ARM Holdings was acquired by NVIDIA in 2020)
 Campbell Soup: CPB
 
 Notice that it came back with the correct symbols...
+
+
+
+What are the stock symbols for Microsoft, Nvidia, Advanced Micro Devices, ARM Holdings, and Campbell Soup?
+
+Microsoft Corporation - MSFT
+Nvidia Corporation - NVDA
+Advanced Micro Devices, Inc. (AMD) - AMD
+ARM Holdings does not have a stock symbol as it is a private company owned by SoftBank Group Corp. and its Vision Fund.
+Campbell Soup Company - CPB
+
+
+
 """
