@@ -10,7 +10,6 @@ from tkinter import messagebox
 # You might need to adjust the import path based on your project structure
 from fingpt_main import process_user_query
 
-
 def submit_query():
     # Retrieve all text from the Text widget
     user_query = query_text.get("1.0", "end-1c")  # From line 1, character 0 to end minus last newline character
@@ -19,35 +18,17 @@ def submit_query():
         return
     # Call the main processing function of your application
     result = process_user_query(user_query)
-    # Display the result in the GUI
-    results_txt.delete(1.0, tk.END)
-    results_txt.insert(tk.INSERT, result)
-
-
-def ZZsubmit_query():
-    user_query = query_entry.get()
-    if user_query.strip() == "":
-        messagebox.showinfo("Empty Query", "Please enter a query.")
-        return
-    # Call the main processing function of your application
-    result = process_user_query(user_query)
 
     print(f"Debug: Result from process_user_query is of type {type(result)}: {result}")  # Debugging line
 
-
     # Display the result in the GUI
     results_txt.delete(1.0, tk.END)
-
-    if not isinstance(result, str):
-        result = str(result)  # Ensure the result is a string
-
     results_txt.insert(tk.INSERT, result)
 
 # GUI setup code remains the same...
 
 # Set up the GUI elements (root window, entry, buttons, etc.)
 app = tk.Tk()
-#app.title("Financial Analysis Tool")
 app.title("FinGPT")
 
 # User query Text widget
@@ -70,3 +51,4 @@ results_txt.pack()
 
 # Start the Tkinter event loop
 app.mainloop()
+

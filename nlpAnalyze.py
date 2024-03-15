@@ -59,5 +59,9 @@ def process_query(user_query, structured_data):
         response = completion.choices[0].message.content  # Adjust based on actual response structure
         print(f"\n-(AA)-----(AA)-----(AA)------(AA)-----\nGPT-4 Comparative Analysis: \n{response}")
         webfile_write('../archive.html', user_query + '\n\n<br><br>' + combined_analysis_query, response)
+        return response  # Return the response so it can be used by the caller
     except IndexError:
+        error_message = "An error occurred processing the combined query."
         print(f"An error occurred processing the combined query.\n")
+        return error_message  # Return the error message if an error occurred
+

@@ -39,10 +39,13 @@ def main():
 	user_query = "What are stock symbols for #list Northrop Grumman Corp, General Dynamics Corp, Boeing Co #list and which stock may be the better investment?"
 
 	#-----------------------------------------------------------
-	# Get stock symbols for companies named in the user query
-	# and get metrics for all named companies
+	# Step 1 - Get stock symbols for companies named in the user query
 	#-----------------------------------------------------------
 	entity_symbols = stock_symbols(user_query)
+
+	#-----------------------------------------------------------
+	# Step 2 - Get metrics for all named companies
+	#-----------------------------------------------------------
 	metric_data = get_yf_stock_metrics(entity_symbols) 
 
 	print("\nmetric_data:\n")
@@ -50,21 +53,26 @@ def main():
 	pp.pprint(metric_data)
 
 	#-----------------------------------------------------------
-	# Get final NLP text from GPT4
+	# Step 3 - Get final NLP text from GPT4
 	#-----------------------------------------------------------
 	process_query(user_query, metric_data)
 
+#---------------------------------------------------
+# process_user_query() is called from the GUI
+#
+#---------------------------------------------------
 def process_user_query(user_query):
 
 	try:
-		# Your existing logic to process the query
+		#-----------------------------------------------------------
+		# Step 1 - Get stock symbols for companies named in the user query
+		#-----------------------------------------------------------
 		entity_symbols = stock_symbols(user_query)
 		metric_data = get_yf_stock_metrics(entity_symbols)
 		# Assuming process_query returns the analysis result as a string
 		analysis_result = process_query(user_query, metric_data)
 
-		analysis_result = "This is a hard coded test string for debugging"
-
+		#analysis_result = "This is a hard coded test string for debugging"
 
 		# Make sure analysis_result is a string
 		if analysis_result is None:
