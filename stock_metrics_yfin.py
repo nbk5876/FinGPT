@@ -8,7 +8,7 @@ import pprint
 import os
 
 def get_yf_stock_metrics(tickers_dict):
-
+    print(f"In get_yf_stock_metrics() \n")
     pp = pprint.PrettyPrinter(indent=4)
     pp.pprint(tickers_dict)
 
@@ -33,10 +33,13 @@ def get_yf_stock_metrics(tickers_dict):
             'beta': info.get('beta'),
             '52WeekChange': info.get('52WeekChange'),
             'averageVolume': info.get('averageVolume'),
-            'marketCap': info.get('marketCap')
+            'marketCap': info.get('marketCap'),
+            'ebitda': info.get('ebitda'),
+            'grossMargins': info.get('grossMargins'),
+            'bookValue': info.get('bookValue')
         }
     
-    pp.pprint(metrics_dict)
+    #pp.pprint(metrics_dict)
 
     # Return the dictionary containing metrics for all queried tickers
     return metrics_dict

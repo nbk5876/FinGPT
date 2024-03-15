@@ -80,7 +80,7 @@ def print_search_results(data):
 #
 #------------------------------------------------------------
 def webfile_write(filename, question, answer):
-    print(f"\nwriting webfile\n")
+    #print(f"\nwriting webfile\n")
     # Ensure we are working with the string content of the answer
     answer_text = answer.content if hasattr(answer, 'content') else str(answer)
     

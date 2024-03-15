@@ -7,44 +7,54 @@
 # companies compare?"
 #------------------------------------------------------------
 import re
+import os
+import pprint
 from openai import OpenAI
 from utils import webfile_write
 
-def stock_symbols(user_query):
-	# Extract names and symbols from the subjectNames section
-	# of the user query. Then convert company names to 
-	# stock symbols
 
-	#------------------------------------------------------
-	# Extract company names and stock symbols from the  
-	# user query
-	#------------------------------------------------------
-	print(f"\nUser Query: {user_query}")
-	pattern = re.compile(r'for(.*?)and (?:how|why)')
-	matches = pattern.search(user_query)
+
+
+#------------------------------------------------------
+# stock_symbols(user_query)
+# 
+#------------------------------------------------------
+def stock_symbols(user_query):
+	print(f"\n=(A)==========(A)==========(A)=========(A)=========(A)====================\nRunning stock_symbols(user_query) with:\n{user_query}")
+	subject_names = []
+
+	pattern = re.compile(r'#list(.*?)#list', re.IGNORECASE | re.DOTALL)
+
+	matches = pattern.findall(user_query)
 	if matches:
-		# Extract the matched group, strip leading/trailing spaces, and split by commas
-		subject_names = matches.group(1).strip().split(',')
-		# Clean whitespace around the names
-		subject_names = [name.strip() for name in subject_names]
-		#return subject_names
-		print(f"\nsubject_names: {subject_names}")
+		# Since findall returns a list of matches, we take the first match assuming there's only one relevant list
+		subject_names_str = matches[0].strip()
+		subject_names = [name.strip() for name in subject_names_str.split(',')]
+		print(f"\n-(B)-------------------------------\nsubject_names: {subject_names}")
 	else:
-		# If no matches are found, return an empty list
 		print(f"\nsubject_names: NONE FOUND")
-		#return []
-	symbols = []
+
+	#symbols = []
 
 	#------------------------------------------------------
 	# Call GPT4 to convert company names to stock symbols
 	# leaving stock symbols unchanged
 	#------------------------------------------------------
-	detailed_description = (
-        f"Give me stock symbols for the following mix of company names and "
-        + f"stock symbols:  {subject_names}. "
-    )
+	#detailed_description = (
+    #    f"Give me stock symbols for the following mix of company names and "
+    #    + f"stock symbols:  {subject_names}. "
+    #)
 
-	print(f"\nsubject_names: {detailed_description}")
+
+	detailed_description = (
+		"List the stock symbols for the following companies in the format 'Company Name: Stock Symbol', "
+		+ f"one per line: {', '.join(subject_names)}. Please be concise."
+	)
+
+
+
+
+	print(f"\n-(C)-------------------------------\ndetailed_description: {detailed_description}")
 
 	client = OpenAI()
 	completion = client.chat.completions.create(
@@ -58,7 +68,8 @@ def stock_symbols(user_query):
 		response = completion.choices[0].message  # Adjust based on actual response structure
 	except IndexError:
 		response = "An error occurred processing the query."
-	print(f"\nGPT4 Response {response}")
+	
+	print(f"\n-(D)-------------------------------\nGPT4 Response \n{response}\n")
 
 	webfile_write('../archive.html', detailed_description, response)
 
@@ -66,9 +77,6 @@ def stock_symbols(user_query):
 	# Convert symbols from GPT4 response to a dictionary 
 	# variable
 	#------------------------------------------------------
-	# Define a regular expression pattern to match "Company Name: Symbol"
-	# This pattern assumes the symbol is represented by uppercase letters, digits, or periods
-
 	# Ensure we are working with the string content of the response
 	response_content = response.content if hasattr(response, 'content') else str(response)
 
@@ -88,10 +96,40 @@ def stock_symbols(user_query):
 		if not symbol.startswith("This"):
 			symbols_dict[company.strip()] = symbol.strip()
 
-
-	print(f"\nSymbols Dictionary {symbols_dict}")
+	print(f"-(E)-------------------------------\nSymbols Dictionary {symbols_dict}")
 
 	# for name in company_names:
 	#     symbol = ...  # Convert name to symbol
 	#     symbols.append(symbol)
 	return symbols_dict
+
+if __name__ == "__main__":
+	os.system('cls' if os.name == 'nt' else 'clear')
+	pp = pprint.PrettyPrinter(indent=4)
+	print(f"Debugging stockSymbols.py")
+
+	#testQry0 = "What are stock symbols for <CompanyOrStockSymbol1>, <CompanyOrStockSymbol2>, <CompanyOrStockSymbol3> and why should I invest in them?"
+	#testQry1 = "What are stock symbols for Microsoft, NVDA, Intel and why should I invest in them?"
+	#testQry2 = "What are stock symbols for Microsoft, NVDA, Intel and which stock may be the better investment?"
+	#testQry3 = "Based on the following data for Microsoft, NVDA, Intel, which stock may be the better investment?"
+	#testQry4 = "Microsoft, NVDA, Intel"
+	#testQry5 = "Procter & Gamble Co., Coca-Cola, Pepsi, Nike Inc, Colgate-Palmolive"
+
+
+	testQry6 = "What are stock symbols for #list Microsoft, NVDA, Intel #list and which stock may be the better investment?"
+	testQry7 = "What are stock symbols for #listMicrosoft, NVDA, Intel #list and why should I invest in them?"
+	testQry8 = "What are stock symbols for #listProcter & Gamble Co., Coca-Cola, Pepsi, Nike Inc, Colgate-Palmolive#list and why should I avoid investing in them?"
+	testQry9 = "#listMicrosoft, NVDA, Intel #list"
+
+	entity_symbols = stock_symbols(testQry6)
+	pp.pprint(entity_symbols)
+
+	entity_symbols = stock_symbols(testQry7)
+	pp.pprint(entity_symbols)
+
+	entity_symbols = stock_symbols(testQry8)
+	pp.pprint(entity_symbols)
+
+	entity_symbols = stock_symbols(testQry9)
+	pp.pprint(entity_symbols)
+
