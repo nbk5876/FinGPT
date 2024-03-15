@@ -63,6 +63,9 @@ def process_user_query(user_query):
 		# Assuming process_query returns the analysis result as a string
 		analysis_result = process_query(user_query, metric_data)
 
+		analysis_result = "This is a hard coded test string for debugging"
+
+
 		# Make sure analysis_result is a string
 		if analysis_result is None:
 			return "No analysis result was returned."
