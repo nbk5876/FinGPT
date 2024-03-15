@@ -2,10 +2,9 @@
 # fingpt_main.py
 # Purpose: 
 #
-#
 #------------------------------------------------------------
 import os
-os.system('cls' if os.name == 'nt' else 'clear')
+#os.system('cls' if os.name == 'nt' else 'clear')
 from stockSymbols import stock_symbols
 #from stockMetrics import stock_metrics
 #import utils
@@ -39,9 +38,6 @@ def main():
 
 	user_query = "What are stock symbols for #list Northrop Grumman Corp, General Dynamics Corp, Boeing Co #list and which stock may be the better investment?"
 
-
-
-
 	#-----------------------------------------------------------
 	# Get stock symbols for companies named in the user query
 	# and get metrics for all named companies
@@ -57,6 +53,25 @@ def main():
 	# Get final NLP text from GPT4
 	#-----------------------------------------------------------
 	process_query(user_query, metric_data)
+
+def process_user_query(user_query):
+
+	try:
+		# Your existing logic to process the query
+		entity_symbols = stock_symbols(user_query)
+		metric_data = get_yf_stock_metrics(entity_symbols)
+		# Assuming process_query returns the analysis result as a string
+		analysis_result = process_query(user_query, metric_data)
+
+		# Make sure analysis_result is a string
+		if analysis_result is None:
+			return "No analysis result was returned."
+		else:
+			return analysis_result
+
+	except Exception as e:
+		# Catch any exceptions that occur and return them as a string
+		return f"An error occurred: {e}"
 
 if __name__ == "__main__":
 	main()

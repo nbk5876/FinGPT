@@ -2,6 +2,7 @@
 # utils.py  
 # Purpose: Contains utility functions
 #------------------------------------------------------------
+from datetime import datetime
 
 #------------------------------------------------------------
 # get_mock_metrics()
@@ -75,11 +76,55 @@ def print_search_results(data):
         print(f"Currency: {match.get('8. currency', 'N/A')}")
         print(f"Match Score: {match.get('9. matchScore', 'N/A')}")
 
+
+def webfile_write(filename, question, answer):
+    # Get the current date and time formatted as a string
+    current_datetime = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    # Ensure we are working with the string content of the answer
+    answer_text = answer.content if hasattr(answer, 'content') else str(answer)
+    
+    # Replace newline characters with <br> tags for HTML line breaks
+    formatted_answer = answer_text.replace('\n', '<br>')
+
+    html_template = f"""<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q&A Archive</title>
+    <style>
+        body {{ font-family: Calibri, sans-serif; padding: 20px; }}
+        .datetime {{ text-align: right; color: #555; }}
+        .question, .answer {{ margin-bottom: 20px; }}
+        .question h2, .answer h2 {{ margin-bottom: 10px; }}
+    </style>
+</head>
+<body>
+    <div class="datetime">
+        {current_datetime}
+    </div>
+    <div class="question">
+        <h2>Question:</h2>
+        <p>{question}</p>
+    </div>
+    <div class="answer">
+        <h2>Answer:</h2>
+        {formatted_answer}
+    </div>
+</body>
+</html>"""
+    with open(filename, 'w', encoding='utf-8') as file:
+        file.write(html_template)
+
+
+
 #------------------------------------------------------------
 # webfile_write(filename, question, answer)
-#
+# Example Invocation:
+#      webfile_write('../archive.html', detailed_description, response)
 #------------------------------------------------------------
-def webfile_write(filename, question, answer):
+def ZZZwebfile_write(filename, question, answer):
     #print(f"\nwriting webfile\n")
     # Ensure we are working with the string content of the answer
     answer_text = answer.content if hasattr(answer, 'content') else str(answer)
