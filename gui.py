@@ -38,7 +38,7 @@ query_text = tk.Text(app, height=3, width=50)  # Height is set to 3 lines
 query_text.pack()
 
 # Pre-fill the Text widget with a default query
-default_query = "What are stock symbols for #list Microsoft, Apple #list and which stock may be the better investment?"
+default_query = "What are stock symbols for ## Microsoft, Apple ## and which stock may be the better investment?"
 query_text.insert(tk.END, default_query)
 
 # Set up the Submit button

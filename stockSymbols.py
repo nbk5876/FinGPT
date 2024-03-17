@@ -23,7 +23,8 @@ def stock_symbols(user_query):
 	print(f"\n=(A)==========(A)==========(A)=========(A)=========(A)====================\nRunning stock_symbols(user_query) with:\n{user_query}")
 	subject_names = []
 
-	pattern = re.compile(r'#list(.*?)#list', re.IGNORECASE | re.DOTALL)
+	#pattern = re.compile(r'#list(.*?)#list', re.IGNORECASE | re.DOTALL)
+	pattern = re.compile(r'##(.*?)##', re.IGNORECASE | re.DOTALL)
 
 	matches = pattern.findall(user_query)
 	if matches:
