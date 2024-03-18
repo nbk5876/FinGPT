@@ -23,27 +23,42 @@
     height: auto;
     display: block;
   }
+  .img-text {
+    font-family: 'Calibri', sans-serif; /* Make sure Calibri is installed on the user's system or use a web font */
+    font-size: 16px; /* Adjust the size as needed */
+    margin: 10px 0; /* Add some space above and below the text */
+    text-align: center; /* Center the text if desired */
+  }  
+  @media (min-width: 768px) {
+    img {
+      max-width: 600px; /* Larger images for tablets and desktops */
+    }
+    .img-text {
+      font-size: 18px; /* Slightly larger text on larger screens */
+    }
+  }
+
 </style>
 </head>
 <body> 
 
-1. The default request is for stock analysis on Microsoft and Apple
+<p class="img-text">1. The default request is for stock analysis of Microsoft and Apple</p>
 <div class="image-container">
   <img src="./image/FinGPT-GUI-01.png" alt="FinGPT GUI Image 1">
 </div>
-2. Submit the request to see the analysis of Microsoft and Apple
+<p class="img-text">2. The request is submitted and we see the analysis of Microsoft and Apple</p>
 <div class="image-container">
   <img src="./image/FinGPT-GUI-02.png" alt="FinGPT GUI Image 2">
 </div>
-3. Change the request to an analysis of Gap, Target, and Macys
+<p class="img-text">3. The request is changed into a new request for analysis of Gap, Target, and Macys</p>
 <div class="image-container">
   <img src="./image/FinGPT-GUI-03.png" alt="FinGPT GUI Image 3">
 </div>
-4. Submit the request to see the analysis of Gap, Target, and Macys
+<p class="img-text">4. The new request is submitted and we see the analysis of Gap, Target, and Macys</p>
 <div class="image-container">
   <img src="./image/FinGPT-GUI-04.png" alt="FinGPT GUI Image 4">
 </div>
-5. Scroll to bottom of the analysis of Gap, Target, and Macys
+<p class="img-text">5. Scroll to bottom of the analysis of Gap, Target, and Macys</p>
 <div class="image-container">
   <img src="./image/FinGPT-GUI-05.png" alt="FinGPT GUI Image 5">
 </div>
