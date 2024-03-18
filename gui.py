@@ -34,7 +34,7 @@ app.title("FinGPT")
 # User query Text widget
 query_label = tk.Label(app, text="Enter your query:")
 query_label.pack()
-query_text = tk.Text(app, height=3, width=50)  # Height is set to 3 lines
+query_text = tk.Text(app, height=5, width=20, wrap=tk.WORD)  # Height is set to 3 lines 50 chars
 query_text.pack()
 
 # Pre-fill the Text widget with a default query
