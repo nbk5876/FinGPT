@@ -19,24 +19,15 @@ print("Running fin_gpt_main.py")
 def main():
 
 	user_query = "What are stock symbols for Costco Wholesale, Kroger Co, Home Depot, Walmart and why should I invest in them?"
-
 	user_query = "What are stock symbols for Microsoft, NVDA, Advanced Micro Devices, ARM Holdings, Campbell Soup and why should I invest in them?"
-
 	user_query = "What are stock symbols for Costco Wholesale, Kroger Co and why should I invest in them? please respond with your finding that compare these companies in order of best to worst in terms of investment potential"
-
 	user_query = "Based on the following data for Microsoft, NVDA, Intel which stock may be the better investment?"
-
 	user_query = "What are stock symbols for Microsoft, NVDA, Intel and why should I invest in them?"
-
 	user_query = "What are stock symbols for #list Costco Wholesale, Kroger Co #list and why should I invest in them? please respond with your finding that compare these companies in order of best to worst in terms of investment potential"
-
 	user_query = "What are stock symbols for #list Microsoft, NVDA, Intel #list and which stock may be the better investment?"
-
 	user_query = "What are stock symbols for #listProcter & Gamble Co., Coca-Cola, Pepsi, Nike Inc, Colgate-Palmolive#list and why should I avoid investing in them?"
-
 	user_query = "What are stock symbols for #list Microsoft, Apple #list and which stock may be the better investment?"
-
-	user_query = "What are stock symbols for #list Northrop Grumman Corp, General Dynamics Corp, Boeing Co #list and which stock may be the better investment?"
+	#user_query = "What are stock symbols for #list Northrop Grumman Corp, General Dynamics Corp, Boeing Co #list and which stock may be the better investment?"
 
 	#-----------------------------------------------------------
 	# Step 1 - Get stock symbols for companies named in the user query
